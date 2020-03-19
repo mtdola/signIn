@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign in</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			margin: 0; 
+			padding: 0;
+		}
+		.container {
+			/*margin: auto;
+			width: 50%;
+			border: 3px, solid, black;
+			border-radius: 20;
+			text-align: center;*/
+			margin: 0;
+			width: 20rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			margin: 2%;
+		}
+		/* Begining of heart*/
+		.heart {
+		  width: 100px;
+		  height: 80px;
+		  position: relative;
+		  left: 50%;
+		  top: 50%;
+		  transform: translate(-50%, -50%);
+		  background: url(https://cssanimation.rocks/images/posts/steps/heart.png) no-repeat;
+		  background-position: 0 0;
+		  cursor: pointer;
+		  animation: fave-heart 1s steps(28);
+		  z-index: 100;
+		}
+		.heart:hover {
+		  background-position: -2800px 0;
+		  transition: background 1s steps(28);
+		}
+		@keyframes fave-heart {
+		  0% {
+		    background-position: 0 0;
+		  }
+		  100% {
+		    background-position: -2800px 0;
+		  }
+		}
+
+		 /* End of heart*/
+		.smaller-box {
+			text-align: center;
+			padding: 40px;
+			background-color: rgba(255, 248, 255);
+			box-shadow: 8px 8px 13px #ccc;
+		}
+		input {
+			margin-top: 12px;
+			padding: 4px 6px;
+		}
+		input#username, input#password {
+			border: 0px;
+			width: 70%;
+			text-align: center;
+			outline: none;
+			border-bottom: 1px solid #ccc;
+		} 
+		#submit {
+			width: 55%;
+			margin-top: 15px;
+			padding: 7px 13px;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			outline: none;
+		}
+		#submit:hover {
+			background-color: black;
+			color: white;
+		}
+		.under-form-section {
+			margin-top: 12px;
+			font-size: 0.9rem;
+		}
+	</style>
+
+	<script type="text/javascript">
+
+		var dataBase = [
+			{
+				username: "Eni",
+				password: "Adejare"
+			},
+			{
+				username: "Mtd",
+				password: "Olatunde"
+			}
+		]
+
+		function getInfo() {
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			
+			for(i=0; i < dataBase.length; i++) {
+			if (username == dataBase[i].username && password == dataBase[i].password){
+				console.log("Welcome, you have been logged in");
+				window.location.replace("index.html");
+				return;
+			}
+			else {
+				console.log("You're a fraud!");
+				}
+			}
+		
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="smaller-box">
+			<div class="heart"></div>
+			<span class="welcome-text">Welcome back!</span>
+			<h2>Login</h2>
+			<form action="#">
+				<label> 
+					<input id="username" type="text" placeholder="Username"> <br>
+				</label>
+				<label> 
+					<input id="password" type="password" placeholder="Password"><br>
+				</label>
+				<button id="submit" type="button" onclick="getInfo()">Continue</button> 
+			</form>
+			<div class="under-form-section"><a href="#">Forgot Password?</a> &nbsp | &nbsp <a href="#">Create an account</a></div>
+			
+		</div>
+	</div>
+</body>
+</html>
